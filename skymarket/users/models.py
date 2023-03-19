@@ -5,8 +5,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class User(AbstractBaseUser):
-    # TODO переопределение пользователя.
-    # TODO подробности также можно поискать в рекоммендациях к проекту
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
