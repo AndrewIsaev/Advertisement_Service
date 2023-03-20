@@ -15,6 +15,12 @@ class CommentSerializer(serializers.ModelSerializer):
         validated_data["author_id"] = request.user
         return super().create(validated_data)
 
+    def update(self, instance, validated_data):
+        user = self.context.get("request").user
+        validated_data["author_id"] = user
+
+        return super().update(instance, validated_data)
+
     class Meta:
         model = Comment
         fields = "__all__"
@@ -35,6 +41,13 @@ class AdDetailSerializer(serializers.ModelSerializer):
         request = self.context.get("request")
         validated_data["author_id"] = request.user.pk
         return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        user = self.context.get("request").user
+        validated_data["author_id"] = user
+        validated_data['ad'] = instance.ad
+
+        return super().update(instance, validated_data)
 
     class Meta:
         model = Ad
