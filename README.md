@@ -1,5 +1,5 @@
 # Advertisement_Service
-Back-end for Advertisement site
+Back-end for Advertisement application
 ***
 ## Features
 - Authorization/Authentication users
